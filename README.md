@@ -1,1 +1,2 @@
-# synoloader_sdk
+#Synoloader
+A basic add-on
