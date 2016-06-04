@@ -24,42 +24,59 @@
 <div class="row">
 	<div class="col s6">
 		<div class="row">
-			<div id="Profiles" class="collection"></div>
-			<div class="input-field col s6">
-				<i class="material-icons prefix">account_circle</i>
-				<input id="profile_name" type="text" class="validate">
-				<label for="profile_name">profile name to add</label>
-			</div>
-			<div class="col s2">
-				<a id="addAccordion" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+				<div class="section">
+					<h5>Profiles</h5>
+				<div id="Profiles" class="collection">
+				</div>
+				<div class="col s2">
+					<a id="profile_name_add" class=" btn-floating waves-effect waves-light"><i class="small material-icons">add</i></a>
+				</div>
+
+				<div id="profile_edit" class="modal">
+					<div class="modal-content">
+						<form class="row">
+							<div class="input-field col s10">
+								<i class="material-icons prefix">account_circle</i>
+								<input id="profile_name" type="text" class="validate">
+								<label for="profile_name">profile name to add</label>
+							</div>
+							<div class="col s2">
+								<form action="#">
+									<input id="profile_edit_default" type="checkbox" class="filled-in" />
+									<label for="profile_edit_default">Default Profile</label>
+								</form>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<a href="#!" id="profile_edit_set" class=" modal-action modal-close waves-effect waves-green btn-flat">SET</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 	<div class="col s6">
 		<div class="row">
 
-			<div class="input-field col s12">
-				<select>
-					<option value='1'> First option </option>
-					<option value='2'> Second option </option>
-				</select>
-			</div>
-
 			<div class="section">
 				<h5>Connection Settings</h5>
-				<h6>Protocoll</h6>
-				<p>
-					<form action="#">
-				<p>
-					<input class="with-gap" name="group1" type="radio" id="http" />
-					<label for="http">http</label>
-				</p>
-				<p>
-					<input class="with-gap" name="group1" type="radio" id="https" />
-					<label for="https">https</label>
-				</p>
-				</form>
-				</p>
+				<div class="input-field col s12">
+					<select class="icons">
+						<option value="" disabled selected>Select protocoll</option>
+						<option value="" data-icon="https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_http_black_24px.svg" class="left circle">HTTP</option>
+						<option value="" data-icon="https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_https_black_18px.svg" class="left circle">HTTPS</option>
+					</select>
+					<label>Protocoll</label>
+				</div>
+
+				<div class="input-field col s12">
+					<select>
+						<option value="" disabled selected>Select connection typ</option>
+						<option value="quick_connect" selected>QuickConnect</option>
+						<option value="ip">IP/URL</option>
+					</select>
+					<label>Protocoll</label>
+				</div>
 
 				<div class="input-field col s12">
 					<input id="url_to_nas" type="text" class="validate">
@@ -81,27 +98,17 @@
 				</div>
 			</div>
 
-			<div class="input-field col s12">
-				<div class="col">
-				<a id="check_connection", class="waves-effect waves-light btn">check connection</a>
-				</div>
-				<div id="check_connection_status" class="col">
-					<div id="check_connection_prelaoder" class="preloader-wrapper small">
-						<div class="spinner-layer spinner-green-only">
-							<div class="circle-clipper left">
-								<div class="circle"></div>
-							</div><div class="gap-patch">
-							<div class="circle"></div>
-						</div><div class="circle-clipper right">
-							<div class="circle"></div>
-						</div>
-						</div>
-					</div>
-				</div>
+			<a id="check_connection", class="waves-effect waves-light btn"><i  id="check_connection_status" class="material-icons right">help</i>check connection</a>
+
+
+
+			<div class="progress">
+				<div id="check_connection_prelaoder" class="determinate"></div>
 			</div>
 		</div>
 	</div>
 </div>
+
 </body>
 
 </html>

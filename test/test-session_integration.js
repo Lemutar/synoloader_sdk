@@ -1,6 +1,6 @@
-let BaseApi = require("../lib/BaseApi.js").BaseApi;
-let AuthApi = require("../lib/AuthApi.js").AuthApi;
-let Session = require("../lib/Session.js").Session;
+let BaseApi = require("../lib/base_api.js").BaseApi;
+let AuthApi = require("../lib/auth_api.js").AuthApi;
+let Session = require("../lib/session.js").Session;
 
 let getAuthApi = function() {
     var base_api = new BaseApi("http://192.168.0.201:5050", 10000);
@@ -16,13 +16,13 @@ exports["test login_logout"] = function(assert, done) {
         assert.equal(true, login_response.success);
         assert.equal(true, session.is_logged_in);
         //assert.notEqual(undefined, session.sid);
-    session.logout((logout_response) => {
-        assert.equal(true, logout_response.success);
-        assert.equal(false, session.is_logged_in);
-        assert.equal(undefined, session.sid);
-        done();
-});
-});
+        session.logout((logout_response) => {
+            assert.equal(true, logout_response.success);
+            assert.equal(false, session.is_logged_in);
+            assert.equal(undefined, session.sid);
+            done();
+        });
+    });
 };
 
 require("sdk/test").run(exports);

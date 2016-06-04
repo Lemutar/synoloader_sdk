@@ -3,7 +3,7 @@
   "name": "synoloader",
   "version": "0.0.1",
   "description": "A basic add-on",
-  "main": "Synoloader.js",
+  "main": "synoloader.js",
   "author": "",
   "engines": {
     "firefox": ">=38.0a1",
@@ -15,30 +15,16 @@
   ],
   "preferences": [
     {
-      "name": "protocoll",
-      "type": "radio",
-      "title": "Protocoll",
-      "value": "Https",
-      "options": [
-        {
-          "value": "Http",
-          "label": "Http"
-        },
-        {
-          "value": "Https",
-          "label": "Https"
-        }
-      ]
-    },
-    {
       "type": "control",
-      "label": "Click me!",
-      "icon": "./synoloader32.png",
-      "name": "sayHello",
-      "title": "Say Hello"
+      "label": "Show Connections",
+      "name": "manage_connections",
+      "title": "Manage Connections"
     }
   ],
   "devDependencies": {
-    "istanbul-jpm": "0.0.1"
+    "istanbul-jpm": "0.0.1",
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-jsbeautifier": "^0.2.7"
   }
 }

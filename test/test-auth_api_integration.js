@@ -1,5 +1,5 @@
-let BaseApi = require("../lib/BaseApi.js").BaseApi;
-let AuthApi = require("../lib/AuthApi.js").AuthApi;
+let BaseApi = require("../lib/base_api.js").BaseApi;
+let AuthApi = require("../lib/auth_api.js").AuthApi;
 
 let getBaseApi = function() {
     var base_api = BaseApi("http://192.168.0.201:5050", 5000);
@@ -16,10 +16,10 @@ exports["test login_logout"] = function(assert, done) {
     var auth_api = AuthApi(getBaseApi());
     auth_api.login("synoloader_tester", "1234", "DownloadStation", (login_response) => {
         assert.equal(true, login_response.success);
-    auth_api.logout("DownloadStation",  (logout_response) => {
-        assert.equal(true, logout_response.success);
-    done();
-    });
+        auth_api.logout("DownloadStation", (logout_response) => {
+            assert.equal(true, logout_response.success);
+            done();
+        });
     });
 };
 

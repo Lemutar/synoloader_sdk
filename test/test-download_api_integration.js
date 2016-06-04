@@ -1,8 +1,11 @@
-let BaseApi = require("../lib/BaseApi.js").BaseApi;
-let AuthApi = require("../lib/AuthApi.js").AuthApi;
-let Session = require("../lib/Session.js").Session;
-let DownloadApi = require("../lib/DownloadApi.js").DownloadApi;
-let { before, after } = require('sdk/test/utils');
+let BaseApi = require("../lib/base_api.js").BaseApi;
+let AuthApi = require("../lib/auth_api.js").AuthApi;
+let Session = require("../lib/session.js").Session;
+let DownloadApi = require("../lib/download_api.js").DownloadApi;
+let {
+    before,
+    after
+} = require('sdk/test/utils');
 
 let getSession = function() {
     var base_api = new BaseApi(urlToConnect, 20000);
@@ -17,10 +20,10 @@ this.file_to_downlaod = "http://releases.ubuntu.com/vivid/ubuntu-15.04-desktop-a
 this.session = getSession();
 
 
-after(exports, function (name, assert, done) {
+after(exports, function(name, assert, done) {
     this.session.logout((logout_response) => {
         assert.equal(true, logout_response.success);
-    done();
+        done();
     });
 });
 
@@ -41,8 +44,8 @@ exports["test createTasks"] = function(assert, done) {
     var download_api = DownloadApi(this.session);
     download_api.createTasks((create_task_response) => {
         assert.equal(true, create_task_response.success);
-    done();
-}, this.file_to_downlaod);
+        done();
+    }, this.file_to_downlaod);
 }
 
 exports["test createTasksHomeDir"] = function(assert, done) {
@@ -50,7 +53,7 @@ exports["test createTasksHomeDir"] = function(assert, done) {
     download_api.createTasks((create_task_response) => {
         assert.equal(true, create_task_response.success);
         done();
-}, this.file_to_downlaod, "home");
+    }, this.file_to_downlaod, "home");
 }
 
 require("sdk/test").run(exports);
